@@ -1,0 +1,19 @@
+## Overview
+
+Create a narrative visualization implemented as an interactive web page, using your knowledge of visual communication and narrative structure, along with your skills at D3 programming in JavaScript. The narrative visualization should be implemented on a publicly visible website, such as [github.io](http://github.io). See [pages.github.com](https://pages.github.com/) for instructions on how to use github to host a website. You will turn in this project by submitting the URL to the narrative visualization for grading, along with an essay describing how the interactive web page contains the elements of a narrative visualization and satisfies the requirements of this assignment.
+
+The narrative visualization should follow one of the three effective narrative visualization structures:
+*   a martini glass, where the message is delivered without allowing user exploration until the end,
+*   an interactive slideshow, where user exploration is allowed at some or all of the steps of the story, or
+*   a drill down story. which presents an overview and allows the user to explore different storylines from there.
+
+You **must** use the D3 library to construct your pages. You cannot use Tableau Stories, Vega, Vega-Lite, Ellipses or any other high-level tool designed for data visualization to implement your narrative visualization. The only other libraries allowed for this assignment are [d3-annotation](https://d3-annotation.susielu.com/) and [topoJSON Client](https://github.com/topojson/topojson-client). No other library besides d3 (any version), d3-annotation and topoJSON Client will be allowed on this assignment.
+
+The narrative visualization should be built with scenes, annotations, parameters, and triggers.
+*   The scenes should follow a template for visual consistency and follow an order to best convey the message. One way to implement different scenes is to make each a separate web page. Another way is to use [**d3.select**](http://d3.select)**(id).html = ""** to clear the contents of a container element (e.g. an SVG element) and then repopulate that element using **.append()**.
+*   The annotations should follow a template for visual consistency from scene to scene. These annotations should also highlight and reinforce specific data items or trends that make the important points for the desired messaging of the narrative visualization. The lessons on d3 popups can be helpful on how to to make and place annotations, but as an annotation, they should appear as part of the scene and not have to wait for a mouseover event.
+*   The parameters are the state variables of your narrative visualization. Your narrative visualization should use these parameters to control the construction of scenes. These parameters will be key variables in your JavaScript code, as well as parameters to key functions used to set up each scene.
+*   The triggers connect user interface actions to changes in parameters that change the state of the narrative visualization. These triggers can be event listeners (callback functions) that change parameter values and then update the display to reflect the result of the event.
+
+This assignment can be successfully completed using as few as three scenes. Those three scenes can simply highlight different details or different data from the same chart. That chart can also be one of the charts we have previously used as an example (e.g. the scatterplot of 2017 automobile data). You can use any dataset you would like, or one of the datasets we have used previously. Free-form user interaction can be as simple as tooltip popups that allow the user to see more information on data items. Just be sure to indicate when a user can access these tooltips, and make sure this free-form user interaction fits properly into the narrative visualization structure.
+**Due to the end of the semester, this assignment has a hard deadline.**
