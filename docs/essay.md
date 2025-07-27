@@ -115,38 +115,46 @@ Annotations change within scenes based on user interactions:
 
 ## Parameters
 
-The narrative visualization uses a comprehensive parameter system to control scene construction and maintain state across the entire narrative:
+The narrative visualization provides users with various parameters (inputs, filters, and controls) that allow them to interact with and explore the data throughout the story:
 
-### Core Parameters
-- **`currentScene`**: Controls which scene is displayed (1-5), determining the entire visual layout and interaction model
-- **`selectedManufacturer`**: Tracks the user's manufacturer selection across scenes, influencing data filtering and visual emphasis
-- **`selectedYear`**: Tracks the user's year selection for temporal analysis, affecting trend calculations and period highlighting
-- **`selectedOrigin`**: Tracks the user's regional selection for geographic analysis, influencing color coding and data filtering
-- **`data`**: The complete dataset, available to all scenes for consistent data access
-- **`filteredData`**: Processed data based on current parameter values, used for dynamic visualizations
-- **`viewMode`**: Controls chart type in Scene 5 (scatter/parallel/radar), allowing users to choose their preferred visualization
+### User-Controlled Parameters
 
-### State Management
-The parameters create a coherent state system where:
-- **Global State**: Parameters persist across scene transitions, maintaining user context
-- **Scene-Specific State**: Each scene can modify global parameters through user interactions
-- **Data Flow**: Selections in early scenes influence data presentation in later scenes
-- **Consistency**: All scenes use the same parameter structure, ensuring reliable behavior
+**Manufacturer Filter**: Users can select specific car manufacturers to focus their analysis. This parameter allows users to explore how different companies approach the efficiency-performance trade-off, from companies that prioritize fuel economy to those that emphasize engine power.
 
-### Parameter Usage in Scene Construction
-Parameters directly control how each scene is constructed:
-- **Scene 1**: Uses `data` parameter to display the complete dataset overview
-- **Scene 2**: Uses `data` and `selectedManufacturer` to highlight specific manufacturers
-- **Scene 3**: Uses `data` and `selectedYear` to focus on specific time periods
-- **Scene 4**: Uses `data` and `selectedOrigin` to emphasize regional patterns
-- **Scene 5**: Uses `data`, `selectedManufacturer`, `selectedYear`, `selectedOrigin`, and `viewMode` to create personalized visualizations
+**Year Selection**: Users can choose specific years or time periods to examine how automotive priorities have evolved over time. This parameter is particularly important in Scene 3, where users can focus on key historical periods like the 1973-74 oil crisis or the early 1980s technology boom.
 
-### Story Continuity
-Parameters ensure story continuity by:
-- **Maintaining Context**: User selections carry forward through the narrative
-- **Building Understanding**: Each scene builds upon previous parameter values
-- **Enabling Exploration**: Parameters allow users to follow their interests through the data
-- **Creating Coherence**: The narrative feels like a continuous exploration rather than disconnected scenes
+**Regional Filter**: Users can filter data by geographic origin (Europe, Japan, USA) to explore how regional preferences and regulations have influenced automotive design. This parameter reveals cultural and regulatory differences in automotive priorities.
+
+**Visualization Mode**: In Scene 5, users can choose between different chart types (scatter plot, parallel coordinates, radar chart) to explore the data in their preferred way. This parameter gives users control over how they want to visualize the relationships between different automotive characteristics.
+
+**Scene Navigation**: Users can move forward and backward through the narrative using navigation buttons, controlling the pace and direction of their exploration through the automotive efficiency story.
+
+### Parameter Integration Across Scenes
+
+The parameters work together to create a coherent narrative experience:
+- **Progressive Filtering**: Users can start with broad overviews and progressively narrow their focus using manufacturer, year, and regional filters
+- **Context Preservation**: User selections carry forward through scenes, maintaining context and preventing confusion
+- **Personalized Exploration**: Parameters allow users to follow their specific interests, whether they're interested in particular manufacturers, time periods, or regions
+- **Dynamic Visualization**: The visualization responds immediately to parameter changes, updating charts and highlighting relevant data
+
+### Parameter Affordances
+
+The visualization provides clear affordances to help users understand and use the parameters:
+- **Visual Feedback**: Selected parameters are clearly highlighted with colors and borders
+- **Immediate Response**: Changes to parameters result in immediate visual updates
+- **Clear Labels**: All parameters have descriptive labels that explain their purpose
+- **Reset Options**: Users can clear filters and return to overview states when needed
+- **Progressive Disclosure**: Parameters are introduced gradually as users progress through scenes, preventing overwhelming complexity
+
+### Parameter-Driven Storytelling
+
+The parameters enable different narrative paths through the data:
+- **Manufacturer-Focused Path**: Users can explore how specific companies approach automotive design
+- **Temporal Path**: Users can examine how automotive priorities have evolved over time
+- **Regional Path**: Users can compare how different geographic regions prioritize efficiency vs. performance
+- **Personal Discovery Path**: Users can combine multiple parameters to discover their own insights and patterns
+
+This parameter system ensures that the narrative visualization is not just a passive story but an interactive exploration that adapts to user interests and provides multiple pathways through the automotive efficiency data.
 
 ## Triggers
 
