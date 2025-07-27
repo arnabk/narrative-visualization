@@ -49,10 +49,32 @@ const Scene5DetailedExploration: React.FC<Scene5DetailedExplorationProps> = ({
   }, [data, selectedManufacturer, selectedYear, selectedOrigin]);
 
   useEffect(() => {
-    if (!filteredData.length || !svgRef.current) return;
+    if (!svgRef.current) return;
 
     // Clear previous content
     d3.select(svgRef.current).selectAll("*").remove();
+
+    // If no filtered data, show empty chart
+    if (!filteredData.length) {
+      const svg = d3.select(svgRef.current);
+      const margin = { top: 40, right: 40, bottom: 60, left: 60 };
+      const width = 1400 - margin.left - margin.right;
+      const height = 500 - margin.top - margin.bottom;
+
+      const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      // Add empty state message
+      g.append("text")
+        .attr("x", width / 2)
+        .attr("y", height / 2)
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("fill", "#666")
+        .text("No data matches the current filters");
+
+      return;
+    }
 
     const svg = d3.select(svgRef.current);
     const margin = { top: 40, right: 40, bottom: 60, left: 60 };
@@ -145,8 +167,11 @@ const Scene5DetailedExploration: React.FC<Scene5DetailedExplorationProps> = ({
       const legend = g.append("g")
         .attr("transform", `translate(${width - 100}, 20)`);
 
-      const origins = Array.from(new Set(data.map(d => d.Origin)));
-      origins.forEach((origin, i) => {
+      const allOrigins = Array.from(new Set(data.map(d => d.Origin)));
+      const filteredOrigins = Array.from(new Set(filteredData.map(d => d.Origin)));
+      
+      allOrigins.forEach((origin, i) => {
+        const isPresent = filteredOrigins.includes(origin);
         const legendRow = legend.append("g")
           .attr("transform", `translate(0, ${i * 20})`);
         
@@ -155,7 +180,8 @@ const Scene5DetailedExploration: React.FC<Scene5DetailedExplorationProps> = ({
           .attr("height", 12)
           .attr("fill", colorScale(origin) as string)
           .attr("stroke", "#333")
-          .attr("stroke-width", 0.5);
+          .attr("stroke-width", 0.5)
+          .attr("opacity", isPresent ? 1 : 0.3);
         
         legendRow.append("text")
           .attr("x", 18)
@@ -163,6 +189,7 @@ const Scene5DetailedExploration: React.FC<Scene5DetailedExplorationProps> = ({
           .attr("text-anchor", "start")
           .attr("fill", "#000")
           .style("font-size", "12px")
+          .attr("opacity", isPresent ? 1 : 0.5)
           .text(origin);
       });
     };
@@ -316,7 +343,7 @@ const Scene5DetailedExploration: React.FC<Scene5DetailedExplorationProps> = ({
       renderRadarChart(g, width, height);
     }
 
-  }, [filteredData, viewMode, data]);
+  }, [filteredData, viewMode, data, selectedManufacturer, selectedYear, selectedOrigin]);
 
   return (
     <div className="space-y-6">
