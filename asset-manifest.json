@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/narrative-visualization/static/css/main.6e7d1004.css",
+    "main.js": "/narrative-visualization/static/js/main.eeb8750b.js",
+    "index.html": "/narrative-visualization/index.html",
+    "main.6e7d1004.css.map": "/narrative-visualization/static/css/main.6e7d1004.css.map",
+    "main.eeb8750b.js.map": "/narrative-visualization/static/js/main.eeb8750b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e7d1004.css",
+    "static/js/main.eeb8750b.js"
+  ]
+}
