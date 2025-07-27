@@ -6,6 +6,9 @@ The primary message of this narrative visualization is to explore the evolution 
 
 The narrative communicates that automotive development has been driven by competing priorities: the desire for powerful engines versus the need for fuel efficiency. This tension is particularly evident during key historical periods like the 1973-74 oil crisis, which forced manufacturers to prioritize efficiency over power. The visualization also reveals regional differences, showing how European and Japanese manufacturers have consistently prioritized fuel efficiency while American manufacturers have traditionally favored higher horsepower.
 
+### Data Access
+The visualization uses the cars dataset from the Vega datasets repository, which can be accessed directly at: https://raw.githubusercontent.com/vega/vega-datasets/refs/heads/main/data/cars.json. This dataset contains 406 cars from 1970-1982 with features including Name, MPG, Cylinders, Displacement, Horsepower, Weight, Acceleration, Year, and Origin. The data is loaded dynamically via fetch requests to ensure reproducibility and allow users to verify the data source directly.
+
 ## Narrative Structure
 
 This narrative visualization follows a **drill-down story** structure, which presents an overview and allows users to explore different storylines from there. The structure begins with a broad overview of the entire dataset, then progressively allows deeper exploration into specific dimensions of the data.

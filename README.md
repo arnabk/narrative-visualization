@@ -18,7 +18,7 @@ pnpm start
 
 ## Live Demo
 
-[https://arnab.github.io/narrative-visualization](https://arnab.github.io/narrative-visualization)
+[https://arnabk.github.io/narrative-visualization](https://arnabk.github.io/narrative-visualization)
 
 ## License
 
